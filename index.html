@@ -32,7 +32,7 @@
  <section id="site">
    <!-- Title -->
 
-   <section id="title">
+   <section class="color-section" id="title">
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
        <a class="navbar-brand" href="">shawnrowley.</a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +103,7 @@
 
    <!-- Me, Myself and I -->
 
-   <section id="me">
+   <section class="off-color-section" id="me">
      <h2 class="me-header">Me.</h2>
      <div class="row">
        <div class="feature-box col-lg-3">
@@ -134,7 +134,7 @@
 
    <!-- Experience -->
 
-   <section id="experience">
+   <section class="color-section" id="experience">
      <h2 class="experience-header">Experience.</h2>
      <div class="accordion" id="accordionResume">
        <div class="card">
@@ -235,11 +235,12 @@
          </div>
        </div>
      </div>
+     <button type="button" class="resume-btn btn btn-dark btn-lg btn-block">Resume</button>
    </section>
 
    <!-- Skills -->
 
-   <section id="skills">
+   <section class="off-color-section" id="skills">
      <h2 class="skill-header">Skills.</h2>
      <div class="row">
        <div class="skill-box col-lg-2 col-md-4 col-sm-6">
@@ -264,19 +265,26 @@
 
        <div class="skill-box col-lg-2 col-md-4 col-sm-6">
         <img class"skill-icon" src="images/golang-75.png"/>
-      </div>
-     <!-- </div>
-     <div class="row"> -->
+       </div>
+
+       <div class="skill-box col-lg-2 col-md-4 col-sm-6">
+         <i class="skill-icon fab fa-php fa-4x"></i>
+       </div>
+
        <div class="skill-box col-lg-2 col-md-4 col-sm-6">
          <i class="skill-icon fab fa-node fa-4x"></i>
        </div>
 
        <div class="skill-box col-lg-2 col-md-4 col-sm-6">
-         <i class="skill-icon fab fa-angular fa-4x"></i>
+         <i class="skill-icon fab fa-vuejs fa-4x"></i>
        </div>
 
        <div class="skill-box col-lg-2 col-md-4 col-sm-6">
          <i class="skill-icon fab fa-react fa-4x"></i>
+       </div>
+
+       <div class="skill-box col-lg-2 col-md-4 col-sm-6">
+         <i class="skill-icon fab fa-angular fa-4x"></i>
        </div>
 
        <div class="skill-box col-lg-2 col-md-4 col-sm-6">
@@ -290,14 +298,22 @@
        <div class="skill-box col-lg-2 col-md-4 col-sm-6">
          <i class="skill-icon fab fa-bootstrap fa-4x"></i>
        </div>
+
+       <div class="skill-box col-lg-2 col-md-4 col-sm-6">
+         <i class="skill-icon fab fa-linux fa-4x"></i>
+       </div>
+
+       <div class="skill-box col-lg-2 col-md-4 col-sm-6">
+         <i class="skill-icon fab fa-windows fa-4x"></i>
+       </div>
      </div>
    </section>
 
    <!-- Projects -->
 
-   <section id="projects">
+   <section class="color-section" id="projects">
      <h2 class="projects-header">Projects.</h2>
-     <div class="row">
+     <div class="project-row row">
        <div class="project-column col-lg-3 col-md-6">
          <div class="card">
            <div class="card-header">
@@ -340,7 +356,7 @@
              <h2>MERN</h2>
              <p>MongoDB</p>
              <p>Express</p>
-             <p>React.js</p>
+             <p>React</p>
              <p>Node.js</p>
              <button type="button" class="btn btn-dark btn-lg btn-block">Learn More</button>
            </div>
@@ -353,10 +369,10 @@
              <h3 class="project-title">Next Big Thing</h3>
            </div>
            <div class="card-body">
-             <h2>MERN</h2>
+             <h2>MEVN</h2>
              <p>MongoDB</p>
              <p>Express</p>
-             <p>React.js</p>
+             <p>Vue.js</p>
              <p>Node.js</p>
              <button type="button" class="btn btn-dark btn-lg btn-block">Learn More</button>
            </div>
@@ -368,7 +384,7 @@
 
    <!-- Contact -->
 
-   <section id="contact">
+   <section class="off-color-section" id="contact">
      <h2 class="contact-header">Contact.</h2>
 
      <a class="contact-link" href="http://www.shawnrowley.com/"><i class="contact-icon fab fa-wordpress fa-2x"></i></a>
@@ -377,7 +393,8 @@
      <a class="contact-link" href="https://shawnrowley.atlassian.net/wiki/home"><i class="contact-icon fab fa-confluence fa-2x"></i></a>
      <a class="contact-link" href="mailto:shawn.a.rowley@gmail.com"><i class="contact-icon fas fa-envelope fa-2x"></i></a>
 
-     <p class="footer-copyright">© Copyright 2021 shawnrowley.io</p>
+     <p class="footer-hosted">Hosted by <b>Me.</b> via</p>
+     <i class="fab fa-aws fa-2x"></i>
    </section>
 
  </section>

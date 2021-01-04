@@ -7,10 +7,19 @@ body {
   margin: 25px;
 }
 
+/* Sections */
+
+.color-section {
+  background-color: #000000;
+}
+
+.off-color-section {
+  background-color: #FFFFFF;
+}
+
 /* Title Section */
 
 #title {
-  background-color: #000000;
   color : white;
 }
 
@@ -31,16 +40,6 @@ body {
   padding: 200px 50px;
 }
 
-/* Icons
-.icon {
-  color: grey !important;
-}
-
-.fas:hover {
-  color: #ffffff;
-}
-*/
-
 .col-lg-2 {
   display: block;
   margin-left: auto;
@@ -50,9 +49,7 @@ body {
 /* Me Section */
 
 #me {
-  /* font-family: 'Montserrat', sans-serif; */
-  background-color: #ffffff;
-  padding: 3% 15%;
+  padding: 2% 15%;
 }
 
 .feature-box {
@@ -81,14 +78,13 @@ body {
 /* Experience Section */
 
 #experience {
-  background-color: #000000;
-  /* height: 800px; */
+  padding: 1% 5% 2%;
 }
 
 .experience-header {
   text-align: center;
-  color: lightslategray;
-  padding-top: 1%;
+  color: grey;
+  /* padding-top: 1%; */
 }
 
 .experience-btn {
@@ -98,15 +94,18 @@ body {
 }
 
 .accordion {
-  padding: 5% 10%;
+  padding: 1% 0 1%;
+}
 
+.resume-btn {
+  padding-left: 15% !important;
+  padding-right: 15% !important;
 }
 
 /* Skills Section  */
 
 #skills {
-  background-color: #ffffff;
-
+  padding: 1% 2% 1%;
 }
 
 .skill-header {
@@ -121,47 +120,48 @@ body {
 }
 
 .skill-icon:hover {
-  color: lightslategray;
+  color: grey;
 }
 
 /* Project Section */
 
 #projects {
-  padding :25px;
-  background-color: #000000;
+  padding: 1%;;
 }
 
 .projects-header {
   text-align: center;
-  color: lightslategray;
+  color: grey;
+}
+
+.project-row {
+  /* margin-left: 15px !important;
+  margin-right: 15px !important; */
 }
 
 .project-title {
-  /* font-family: 'Montserrat', sans-serif; */
   font-weight: bold !important;
 }
 
 .project-column {
    font-family: 'Montserrat', sans-serif;
-   padding: 3% 2%;
+   padding: 2% 3%;
    text-align: center;
 }
 
 /* Contact Section */
 
 #contact {
-  background-color: #ffffff;
-  /* height: 300px; */
   text-align: center;
+  padding: 2%;
 }
 
 .contact-header {
   text-align: center;
-  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 .contact-icon {
-  /* display: block; */
   padding: 2%;
   text-decoration: none;
 }
@@ -176,4 +176,8 @@ body {
 
 .footer-copyright {
    padding: 2%;
+}
+
+.footer-hosted {
+   padding-top: 2%;
 }

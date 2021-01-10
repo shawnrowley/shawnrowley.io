@@ -124,8 +124,8 @@ body {
   height : auto;
 }
 
-.skill-icon:hover {
-  color: grey;
+.skill-icon {
+  font-size: 4rem;
 }
 
 /* Project Section */

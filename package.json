@@ -1,0 +1,22 @@
+{
+  "name": "shawnrowleyio",
+  "version": "1.0.0",
+  "description": "Shawn Rowley development site",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shawnrowley/shawnrowleyio.git"
+  },
+  "author": "Shawn A. Rowley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shawnrowley/shawnrowleyio/issues"
+  },
+  "homepage": "https://github.com/shawnrowley/shawnrowleyio#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

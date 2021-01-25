@@ -1,7 +1,7 @@
 $("#dialog").dialog({
   autoOpen: false,
   height: "auto",
-  width: 500,
+  width: 300,
   show: {
     effect: "blind",
     duration: 500
@@ -13,13 +13,21 @@ $("#dialog").dialog({
 }).css("font-size", "10px");
 
 $(".skill-icon").on("mouseover", function() {
-  $(".skill-header").css("color", "grey");
-  $(this).animate({
-    fontSize: "5rem"
-  }, 200);
   var isOpen = $("#dialog").dialog("isOpen");
-  if (!isOpen)
+  if (!isOpen) {
+    $(".skill-header").css("color", "grey");
+    $(this).animate({
+      fontSize: "5rem"
+    }, 200);
+    $("#dialog").dialog({
+      position: {
+         my: "center top",
+         at: "center bottom",
+         of: this
+      }
+    });
     $("#dialog").dialog("open");
+  }
 })
 
 $(".skill-icon").on("mouseout", function() {
@@ -44,14 +52,23 @@ $(".skill-box img").on("click", function() {
 });
 
 $(".skill-box img").on("mouseover", function() {
-  $(".skill-header").css("color", "grey");
-  //$(".skill-box .popup").css("display", "block");
-  $(this).animate({
-    width: "30%"
-  }, 200);
   var isOpen = $("#dialog").dialog("isOpen");
-  if (!isOpen)
+  if (!isOpen) {
+    $(".skill-header").css("color", "grey");
+    //$(".skill-box .popup").css("display", "block");
+    $(this).animate({
+      width: "30%"
+    }, 200);
+
+    $("#dialog").dialog({
+      position: {
+        my: "center top",
+        at: "center bottom",
+        of: this
+      }
+    });
     $("#dialog").dialog("open");
+  }
 })
 
 $(".skill-box img").on("mouseout", function() {

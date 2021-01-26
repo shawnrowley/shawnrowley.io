@@ -30,7 +30,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Mongoose DB connection - Local
-//mongoose.connect("mongodb://localhost:27017/rowleyDB", {  useUnifiedTopology: true, useNewUrlParser: true });
+//mongoose.connect("mongodb://localhost:27017/localDB", {  useUnifiedTopology: true, useNewUrlParser: true });
 // Mongoose DB connection - Cloud Atlas
 mongoose.connect(process.env.MONGODB_URI, {  useUnifiedTopology: true, useNewUrlParser: true });
 mongoose.set("useCreateIndex", true);
@@ -131,9 +131,7 @@ app.post("/register", (req, res) => {
        console.log(err);
        res.redirect("/register");
      } else {
-       console.log("authenticating...");
        passport.authenticate("local")(req, res, () => {
-         console.log("authenticated, redirecting...");
          res.redirect("/home");
        });
      }
@@ -150,10 +148,7 @@ app.post("/login", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      console.log("authenticating...");
       passport.authenticate("local", {failureRedirect : "/"})(req, res, () => {
-        console.log("user " + req.user);
-        console.log("authenticated, redirecting...");
           res.redirect("/home");
       });
     }

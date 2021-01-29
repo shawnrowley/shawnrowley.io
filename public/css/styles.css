@@ -96,18 +96,18 @@ body {
 }
 
 .accordion {
-  padding: 1% 0 1%;
+  padding: 1% 3% 1%;
 }
 
 .resume-btn {
-  padding-left: 15% !important;
-  padding-right: 15% !important;
+  padding-left: 5% !important;
+  padding-right: 5% !important;
 }
 
 /* Skills Section  */
 
 #skills {
-  padding: 1% 2% 1%;
+  padding: 1% 8% 1%;
 }
 
 .skill-header {
@@ -196,4 +196,10 @@ body {
 .footer img {
   width: 10%;
   height: auto;
+}
+
+.album-container {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
 }

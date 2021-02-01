@@ -4,7 +4,7 @@ body {
 
 #site {
   border: 1px solid #000000;
-  margin: 25px;
+  margin: 25px 75px;
 }
 
 /* Sections */
@@ -143,6 +143,7 @@ body {
 .projects-header {
   text-align: center;
   color: grey;
+  margin-bottom: 1.5rem;
 }
 
 .project-row {

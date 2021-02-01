@@ -24,6 +24,9 @@
             <a class="nav-link" href="#projects">Projects.</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="docs/shawnrowley-resume.pdf">Resume.</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/logout">Logout.</a>
           </li>
         </ul>
@@ -105,114 +108,33 @@
   <section class="color-section" id="experience">
     <h2 class="experience-header">Experience.</h2>
     <div class="accordion" id="accordionResume">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h2 class="mb-0">
-            <button class="experience-btn btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Leidos - Software Engineer
-            </button>
-          </h2>
-        </div>
+      <% experiences.forEach(experience => { %>
+        <div class="card">
+          <div class="card-header" id="heading<%=experience.order%>">
+            <h2 class="mb-0">
+              <button class="experience-btn btn" type="button" data-toggle="collapse" data-target="#collapse<%=experience.order%>" aria-expanded="true" aria-controls="collapse<%=experience.order%>">
+                <%=experience.title%>
+              </button>
+            </h2>
+          </div>
 
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionResume">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-            aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-            craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          <div id="collapse<%=experience.order%>" class="collapse" aria-labelledby="heading<%=experience.order%>" data-parent="#accordionResume">
+            <div class="card-body">
+              <%=experience.overview%>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h2 class="mb-0">
-            <button class="experience-btn btn collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Lockheed Martin - Senior Software Engineer
-            </button>
-          </h2>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionResume">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-            aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-            craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingThree">
-          <h2 class="mb-0">
-            <button class="experience-btn btn collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Logos Technologies Inc. - Senior Software Engineer
-            </button>
-          </h2>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionResume">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-            aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-            craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingFour">
-          <h2 class="mb-0">
-            <button class="experience-btn btn collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-              Fund For Peace - Senior Software Engineer/Architect
-            </button>
-          </h2>
-        </div>
-        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionResume">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-            aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-            craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingFive">
-          <h2 class="mb-0">
-            <button class="experience-btn btn collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-              Lockheed Martin Information Technologies Inc. - Senior Software Engineer
-            </button>
-          </h2>
-        </div>
-        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionResume">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-            aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-            craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingSix">
-          <h2 class="mb-0">
-            <button class="experience-btn btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-              ADP Benefit Services - Senior Software Engineer
-            </button>
-          </h2>
-        </div>
-        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionResume">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-            aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-            craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
+      <% }); %>
     </div>
-    <button type="button" class="resume-btn btn btn-dark btn-lg btn-block">Resume</button>
   </section>
 
   <!-- Skills -->
 
   <section class="off-color-section" id="skills">
 
-   <div id="dialog" title="Skill Description">
+   <!-- <div id="dialog" title="Skill Description">
      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-   </div>
+   </div> -->
 
     <h2 class="skill-header">Skills.</h2>
     <div class="row">
@@ -297,114 +219,151 @@
   <section class="color-section" id="projects">
     <h2 class="projects-header">Projects.</h2>
 
-  <div class="album py-5 bg-light">
-    <div class="album-container">
+    <div class="album py-5 bg-light">
+      <div class="album-container">
 
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card mb-3 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c"/>
-              <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
-              <image href="images/shawnrowley-io.png" height="290" width="350"/>
-            </svg>
-            <div class="card-body">
-              <p class="card-text"><b>shawnrowley.com</b> WordPress PHP websites build, hosted, and maintained on my personal Amazon EC2 Instances.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card mb-3 shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c" />
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+                <image href="images/shawnrowley-io.png" height="290" width="350" />
+              </svg>
+              <div class="card-body">
+                <p class="card-text"><b>shawnrowley.com</b> WordPress PHP websites build, hosted, and maintained on my personal Amazon EC2 Instances.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      onclick="window.location.href='https://shawnrowley.com';"
+                      class="btn btn-sm btn-outline-secondary">View</button>
+                  </div>
+                  <small class="text-muted">LAMP</small>
                 </div>
-                <small class="text-muted">LAMP</small>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card mb-3 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c"/>
-              <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
-              <image href="images/bankleyburrow.png" height="275" width="340"/>
-            </svg>
-            <div class="card-body">
-              <p class="card-text"><b>BankleyBurrow.com</b> WordPress PHP websites build, hosted, and maintained on my personal Amazon EC2 Instances.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+
+          <div class="col-md-3">
+            <div class="card mb-3 shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c" />
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+                <image href="images/bankleyburrow.png" height="275" width="340" />
+              </svg>
+              <div class="card-body">
+                <p class="card-text"><b>BankleyBurrow.com</b> WordPress PHP websites build, hosted, and maintained on my personal Amazon EC2 Instances.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      onclick="window.location.href='https://bankleyburrow.com';"
+                      class="btn btn-sm btn-outline-secondary">View</button>
+                  </div>
+                  <small class="text-muted">LAMP</small>
                 </div>
-                <small class="text-muted">LAMP</small>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-md-3">
-           <div class="card mb-3 shadow-sm">
-             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-               <title>Placeholder</title>
-               <rect width="100%" height="100%" fill="#55595c"/>
-               <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>  "
-               <image href="images/avatar-cover.png" height="300" width="335"/>
-             </svg>
-             <div class="card-body">
-               <p class="card-text"><b>shawnrowley.io</b> Personal Portofolio and ongoing personal development new concept and technology tryout site.</p>
-               <div class="d-flex justify-content-between align-items-center">
-                 <div class="btn-group">
-                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                   <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
-                 </div>
-                 <small class="text-muted">Mongoose EJS Express NodeJs</small>
-               </div>
-             </div>
-           </div>
-         </div>
-
-        <div class="col-md-3">
-          <div class="card mb-3 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c"/>
-              <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
-            </svg>
-            <div class="card-body">
-              <p class="card-text"><b>Indicate</b> Indicator analysis project                                                          <em>Coming Soon...</em></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+          <div class="col-md-3">
+            <div class="card mb-3 shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#212529" />
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text> "
+                <image href="images/avatar-cover.png" height="300" width="335" />
+              </svg>
+              <div class="card-body">
+                <p class="card-text"><b>shawnrowley.io</b> Personal Portofolio and ongoing personal development new concept and technology site.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      onclick="window.location.href='https://shawnrowleyio.herokuapp.com';"
+                      class="btn btn-sm btn-outline-secondary">View</button>
+                    <button
+                      type="button"
+                      onclick="window.location.href='https://github.com/shawnrowley/shawnrowleyio';"
+                      class="btn btn-sm btn-outline-secondary">Git</button>
+                  </div>
+                  <small class="text-muted">Mongoose EJS Express NodeJs</small>
                 </div>
-                <small class="text-muted">MERN</small>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-md-3">
-          <div class="card mb-3 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c"/>
-              <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-              </text>
-            </svg>
-            <div class="card-body">
-              <p class="card-text"><b>Triplix</b>                                                                                    <em>Coming Soon...</em></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+          <div class="col-md-3">
+            <div class="card mb-3 shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c" />
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+                <image href="images/gender-api.png" height="270" width="340" />
+              </svg>
+              <div class="card-body">
+                <p class="card-text"><b>NameManager</b> Application that allows you to manage names leverages gender-api external web services</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      onclick="window.location.href='https://github.com/shawnrowley/namemanager';"
+                      class="btn btn-sm btn-outline-secondary">Git</button>
+                  </div>
+                  <small class="text-muted">AngularJS, JavaEE, Golang, MonogoDB</small>
                 </div>
-                <small class="text-muted">MEAN</small>
               </div>
             </div>
           </div>
+
+          <div class="col-md-3">
+            <div class="card mb-3 shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c" />
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+              </svg>
+              <div class="card-body">
+                <p class="card-text"><b>Indicate</b> Indicator analysis project <em>Coming Soon...</em></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      onclick="window.location.href='https://github.com/shawnrowley/indicate';"
+                      class="btn btn-sm btn-outline-secondary">Git</button>
+                  </div>
+                  <small class="text-muted">MERN</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card mb-3 shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c" />
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                </text>
+              </svg>
+              <div class="card-body">
+                <p class="card-text"><b>Entourage</b> Multimedia integration project   <em>Coming Soon...</em></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+
+                  </div>
+                  <small class="text-muted">MEAN</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
-  </div>
 
   </section>
 

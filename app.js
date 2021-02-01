@@ -92,7 +92,40 @@ passport.use(new GoogleStrategy({
   }
 ));
 
-//Application Path
+//Experience Path
+// const experience = new Experience ({
+//   title: "Fund For Peace - Senior Software Engineer/Architect",
+//   overview: "Experience Two",
+//   order: 2
+// })
+// experience.save();
+
+
+function getExperiences() {
+  Experience.find((err, experiences) => {  // Checks to see secret is not equal to null
+    if (!err) {
+      if (experiences) {
+        console.log("has experiences: " + experiences.length);
+        for (var i = 0; i < experiences.length; i++) {
+          console.log(experiences[i].title);
+          console.log(experiences[i].overview);
+        }
+        // experiences.forEach(experience => {
+        //   console.log(experience.title);
+        //   console.log(experience.overview);
+        // });
+        return experiences
+      }
+
+        //res.render("secrets", {usersWithSecrets : secrets})
+      //}
+    } else {
+      console.log(err);
+    }
+  });
+}
+//console.log(getExperiences());
+
 
 app.get("/", (req, res) => {
   res.render("login");
@@ -100,7 +133,15 @@ app.get("/", (req, res) => {
 
 app.get("/home", (req,res) => {
   if (req.isAuthenticated()) {
-    res.render("home");
+    Experience.find((err, experiences) => {  // Checks to see secret is not equal to null
+      if (!err) {
+        if (experiences) {
+          res.render("home", {experiences: experiences});
+        }
+      } else {
+        console.log(err);
+      }
+    });
   } else {
     res.redirect("/");
   }

@@ -10,9 +10,6 @@ const passport = require("passport");
 const routes = require("./routes/user");
 var app = express();
 
-// Mongoose DB connection - Local
-//mongoose.connect("mongodb://localhost:27017/localDB", {  useUnifiedTopology: true, useNewUrlParser: true });
-// Mongoose DB connection - Cloud Atlas
 mongoose.connect(process.env.MONGODB_URI, {  useUnifiedTopology: true, useNewUrlParser: true });
 mongoose.set("useCreateIndex", true);
 
@@ -36,14 +33,12 @@ app.use(function(req, res, next) {
 });
 app.use("", routes);
 
-
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 var GitHubStrategy = require('passport-github2').Strategy;
 var User = require("./models/user");
 
 // Passport.js serialization
 passport.serializeUser(function(user, done) {
-  // console.log(user);
   done(null, user);
 });
 passport.deserializeUser(function(id, done) {
@@ -74,11 +69,6 @@ passport.use(new GitHubStrategy({
   function(accessToken, refreshToken, profile, done) {
     console.log(profile);
     User.findOrCreate({ username: profile.emails[0].value, githubId: profile.id }, function (err, user) {
-      // if (!err) {
-      //   console.log(user)
-      // } else {
-      //   console.log(err);
-      // }
       return done(err, user);
     });
   }

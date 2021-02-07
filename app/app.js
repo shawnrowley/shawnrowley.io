@@ -55,7 +55,7 @@ passport.use(new GoogleStrategy({
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
-    console.log(profile);
+  //  console.log(profile);
     User.findOrCreate({ username: profile.emails[0].value, googleId: profile.id }, function (err, user) {
       return cb(err, user);
     });
@@ -67,7 +67,7 @@ passport.use(new GitHubStrategy({
     callbackURL: process.env.GITHUB_CALLBACK
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log(profile);
+  //  console.log(profile);
     User.findOrCreate({ username: profile.emails[0].value, githubId: profile.id }, function (err, user) {
       return done(err, user);
     });

@@ -8,6 +8,7 @@ const ejs = require("ejs");
 const session = require("express-session");
 const passport = require("passport");
 const routes = require("./routes/user");
+const skillroutes = require("./routes/skill");
 var app = express();
 
 mongoose.connect(process.env.MONGODB_URI, {  useUnifiedTopology: true, useNewUrlParser: true });
@@ -16,6 +17,7 @@ mongoose.set("useCreateIndex", true);
 //app use
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended : true
 }));
@@ -32,6 +34,7 @@ app.use(function(req, res, next) {
   next();
 });
 app.use("", routes);
+app.use("/skills", skillroutes);
 
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 var GitHubStrategy = require('passport-github2').Strategy;
@@ -73,5 +76,26 @@ passport.use(new GitHubStrategy({
     });
   }
 ));
+
+//Experience Path
+// const Skill = require("./models/skill");
+// const skill = new Skill ({
+//   name : "MacOS",
+//   description : "description of MacOS skills",
+//   level : 4,
+//   type  : 0,
+//   graphic: "fa-apple"
+// });
+// skill.save();
+
+
+//Experience Path
+// const Experience = require("./models/experience");
+// const exp = new Experience ({
+//   title : "Software Consultant/Developer - Maxim Group Consulting",
+//   overview : "dfsdfsdfsdfsd",
+//   order : 9
+// });
+// exp.save();
 
 module.exports = app;

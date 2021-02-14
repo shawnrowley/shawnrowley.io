@@ -13,25 +13,13 @@ $("#dialog").dialog({
 }).css("font-size", "10px");
 
 $(".skill-icon").on("mouseover", function() {
-  var isOpen = $("#dialog").dialog("isOpen");
-  if (!isOpen) {
-    $(".skill-header").css("color", "grey");
-    $(this).animate({
-      fontSize: "5rem"
-    }, 200);
-    $("#dialog").dialog({
-      position: {
-         my: "center top",
-         at: "center bottom",
-         of: this
-      }
-    });
-    $("#dialog").dialog("open");
-  }
+  $(".skill-header").css("color", "grey");
+  $(this).animate({
+    fontSize: "5rem"
+  }, 200);
 })
 
 $(".skill-icon").on("mouseout", function() {
-  $("#dialog").dialog("close");
   $(this).animate({
     fontSize: "4rem"
   }, 200);
@@ -39,36 +27,44 @@ $(".skill-icon").on("mouseout", function() {
 });
 
 $(".skill-icon").on("click", function() {
-  // $("#dialog").dialog("open");
+  var id = $(this)[0].dataset.id;
+  axios.get('/skills/' + id)
+    .then(function(response) {
+      var skill = response.data;
+      $('#exampleModalLongTitle').text(skill.name);
+      $('#description-skill').html(skill.description);
+      $('#exampleModalCenter').modal('show');
+    })
+    .catch(function(error) {
+      console.log(error);
+    })
+    .then(function() {
+      // always executed
+    });
 });
-//
-// $(".skill-box .popup").on("mouseover", function() {
-//   $(this).animate({display : "30%"}, 200);
-//
-// })
 
-$(".skill-box img").on("click", function() {
-  // $("#dialog").dialog("open");
+$(".skill-box img").on("click", (e) => {
+  var id = $(e.target)[0].dataset.id;
+  axios.get('/skills/' + id)
+    .then(function(response) {
+      var skill = response.data;
+      $('#exampleModalLongTitle').text(skill.name);
+      $('#description-skill').html(skill.description);
+      $('#exampleModalCenter').modal('show');
+    })
+    .catch(function(error) {
+      console.log(error);
+    })
+    .then(function() {
+      // always executed
+    });
 });
 
 $(".skill-box img").on("mouseover", function() {
-  var isOpen = $("#dialog").dialog("isOpen");
-  if (!isOpen) {
-    $(".skill-header").css("color", "grey");
-    //$(".skill-box .popup").css("display", "block");
-    $(this).animate({
-      width: "30%"
-    }, 200);
-
-    $("#dialog").dialog({
-      position: {
-        my: "center top",
-        at: "center bottom",
-        of: this
-      }
-    });
-    $("#dialog").dialog("open");
-  }
+  $(".skill-header").css("color", "grey");
+  $(this).animate({
+    width: "30%"
+  }, 200);
 })
 
 $(".skill-box img").on("mouseout", function() {

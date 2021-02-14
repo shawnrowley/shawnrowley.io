@@ -2,6 +2,8 @@ const express = require("express");
 const passport = require('passport');
 const userController = require("../controllers/user");
 const experienceController = require("../controllers/experience");
+const experience = require("../middleware/experience")
+const skill = require("../middleware/skill")
 
 const router = express.Router();
 
@@ -43,7 +45,11 @@ router.get("/register", (req, res) => {
   res.render("register");
 });
 
-router.get("/home", experienceController.getExperiences);
+router.get(
+  "/home",
+  experience,
+  skill,
+  experienceController.showExperiences);
 
 router.post("/register", userController.registerUser);
 

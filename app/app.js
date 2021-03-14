@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 
 const bodyParser = require("body-parser");
 const express = require("express");
@@ -11,73 +11,103 @@ const routes = require("./routes/user");
 const skillroutes = require("./routes/skill");
 var app = express();
 
-mongoose.connect(process.env.MONGODB_URI, {  useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+});
 mongoose.set("useCreateIndex", true);
 
 //app use
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended : true
-}));
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false
-}));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function(req, res, next) {
-  res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+app.use(function (req, res, next) {
+  res.set(
+    "Cache-Control",
+    "no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0"
+  );
   next();
 });
 app.use("", routes);
 app.use("/skills", skillroutes);
 
-var GoogleStrategy = require('passport-google-oauth20').Strategy;
-var GitHubStrategy = require('passport-github2').Strategy;
+var GoogleStrategy = require("passport-google-oauth20").Strategy;
+var GitHubStrategy = require("passport-github2").Strategy;
 var User = require("./models/user");
 
 // Passport.js serialization
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
   done(null, user);
 });
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
+passport.deserializeUser(function (id, done) {
+  User.findById(id, function (err, user) {
     done(err, user);
   });
 });
 
 passport.use(User.createStrategy());
-passport.use(new GoogleStrategy({
-    clientID: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: process.env.GOOGLE_CALLBACK,
-    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
-  },
-  function(accessToken, refreshToken, profile, cb) {
-  //  console.log(profile);
-    User.findOrCreate({ username: profile.emails[0].value, googleId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
-  }
-));
-passport.use(new GitHubStrategy({
-    clientID: process.env.GITHUB_CLIENT_ID,
-    clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: process.env.GITHUB_CALLBACK
-  },
-  function(accessToken, refreshToken, profile, done) {
-  //  console.log(profile);
-    User.findOrCreate({ username: profile.emails[0].value, githubId: profile.id }, function (err, user) {
-      return done(err, user);
-    });
-  }
-));
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      callbackURL: process.env.GOOGLE_CALLBACK,
+      userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
+    },
+    function (accessToken, refreshToken, profile, cb) {
+      //  console.log(profile);
+      User.findOrCreate(
+        { username: profile.emails[0].value, googleId: profile.id },
+        (err, user) => {
+          if (err) {
+            console.log(err);
+          } else {
+            return cb(err, user);
+          }
+        }
+      );
+    }
+  )
+);
+passport.use(
+  new GitHubStrategy(
+    {
+      clientID: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      callbackURL: process.env.GITHUB_CALLBACK,
+    },
+    function (accessToken, refreshToken, profile, done) {
+      //  console.log(profile);
+      User.findOrCreate(
+        { username: profile.emails[0].value, githubId: profile.id },
+        (err, user) => {
+          if (err) {
+            console.log(err);
+          } else {
+            return done(err, user);
+          }
+        }
+      );
+    }
+  )
+);
 
-//Experience Path
+//Skill
 // const Skill = require("./models/skill");
 // const skill = new Skill ({
 //   name : "MacOS",
@@ -87,7 +117,6 @@ passport.use(new GitHubStrategy({
 //   graphic: "fa-apple"
 // });
 // skill.save();
-
 
 //Experience Path
 // const Experience = require("./models/experience");

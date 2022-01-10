@@ -25,7 +25,7 @@ router.get('/auth/github/callback',
 // Google OAuth authentication
 router.get('/auth/google',
   passport.authenticate('google', {
-    scope: ['profile', 'email']
+    scope: ['email', 'profile']
   }));
 
 router.get('/auth/google/home',

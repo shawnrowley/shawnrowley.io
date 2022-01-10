@@ -46,7 +46,7 @@ app.use(function (req, res, next) {
 app.use("", routes);
 app.use("/skills", skillroutes);
 
-var GoogleStrategy = require("passport-google-oauth20").Strategy;
+var GoogleStrategy = require("passport-google-oauth2").Strategy;
 var GitHubStrategy = require("passport-github2").Strategy;
 var User = require("./models/user");
 
@@ -67,17 +67,17 @@ passport.use(
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       callbackURL: process.env.GOOGLE_CALLBACK,
-      userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
-    function (accessToken, refreshToken, profile, cb) {
-      //  console.log(profile);
+    function (accessToken, refreshToken, profile, done) {
       User.findOrCreate(
-        { username: profile.emails[0].value, googleId: profile.id },
+        { username: profile.id,
+          email: profile.emails[0].value,
+          googleId: profile.id },
         (err, user) => {
           if (err) {
             console.log(err);
           } else {
-            return cb(err, user);
+            return done(err, user);
           }
         }
       );
@@ -92,9 +92,10 @@ passport.use(
       callbackURL: process.env.GITHUB_CALLBACK,
     },
     function (accessToken, refreshToken, profile, done) {
-      //  console.log(profile);
       User.findOrCreate(
-        { username: profile.emails[0].value, githubId: profile.id },
+        { username: profile.id,
+          email: profile.emails[0].value,
+          githubId: profile.id },
         (err, user) => {
           if (err) {
             console.log(err);

@@ -3,7 +3,8 @@ const passport = require("passport");
 
 exports.registerUser = (req, res) => {
   User.register({
-    username: req.body.username
+    username: req.body.username,
+    email: req.body.username
   }, req.body.password, (err, user) => {
     if (err) {
       console.log(err);
